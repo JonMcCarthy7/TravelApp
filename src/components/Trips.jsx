@@ -11,7 +11,7 @@ class Trips extends Component {
   }
   render() {
     const tripsList = this.props.trips.map(trip => {
-      return <TripCard trip={trip} key={trip.name} />;
+      return <TripCard trip={trip} key={trip.id} />;
     });
     return (
       <div className="row">

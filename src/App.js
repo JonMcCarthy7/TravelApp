@@ -16,7 +16,7 @@ class App extends Component {
             <Switch>
               <Route exact path="/" component={Trips} />
               <Route path="/new/trip" component={NewTrip} />
-              <Route path="/trip/:name" component={Trip} />
+              <Route path="/trip/:id" component={Trip} />
             </Switch>
           </div>
         </React.Fragment>

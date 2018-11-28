@@ -3,9 +3,9 @@ import { connect } from "react-redux";
 
 class Trip extends Component {
   render() {
-    console.log(this.props.trips);
+    console.log("THIS IS TRIP SHOW PAGE", this.props.trips);
     const tripsArr = this.props.trips.filter(
-      trip => trip.name === this.props.match.params.name
+      trip => trip.id === +this.props.match.params.id
     );
     const trip = tripsArr[0];
     return (

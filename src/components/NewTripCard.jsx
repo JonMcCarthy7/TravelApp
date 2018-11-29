@@ -14,7 +14,7 @@ export default function NewTripCard() {
             <i className="material-icons right">more_vert</i>
           </span>
           <div>
-            <Link to="/new/trip">
+            <Link to="/trips/new">
               <i className="medium material-icons">add_circle_outline</i>
             </Link>
             <br />

@@ -5,6 +5,7 @@ import Trips from "./components/Trips";
 import NavBar from "./components/NavBar";
 import NewTrip from "./components/NewTrip";
 import Trip from "./components/Trip";
+import NewMemory from "./components/NewMemory";
 
 class App extends Component {
   render() {
@@ -15,8 +16,9 @@ class App extends Component {
           <div className="container">
             <Switch>
               <Route exact path="/" component={Trips} />
-              <Route path="/new/trip" component={NewTrip} />
-              <Route path="/trip/:id" component={Trip} />
+              <Route path="/trips/new" component={NewTrip} />
+              <Route path="/trips/:id/memory/new" component={NewMemory} />
+              <Route path="/trips/:id" component={Trip} />
             </Switch>
           </div>
         </React.Fragment>

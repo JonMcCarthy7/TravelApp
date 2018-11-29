@@ -15,7 +15,7 @@ export default function TripCard({ trip }) {
               <i className="material-icons right">more_vert</i>
             </span>
             <div>
-              <Link to={`/trip/${trip.id}`}>
+              <Link to={`/trips/${trip.id}`}>
                 <i className="medium material-icons">pages</i>
               </Link>
               <br />

@@ -2,7 +2,9 @@ import {
   FETCH_TRIPS_SUCCESS,
   FETCH_TRIPS_FAILED,
   ADD_TRIP_SUCCESS,
-  ADD_TRIP_FAILED
+  ADD_TRIP_FAILED,
+  DELETE_TRIP_SUCCESS,
+  DELETE_TRIP_FAILED
 } from "../actions/tripsAction";
 // const initState = [
 //   {
@@ -22,6 +24,10 @@ export default (state = [], action) => {
     case ADD_TRIP_SUCCESS:
       return [action.payload, ...state];
     case ADD_TRIP_FAILED:
+      return action.payload;
+    case DELETE_TRIP_SUCCESS:
+      return state.filter(trip => trip.id !== action.payload);
+    case DELETE_TRIP_FAILED:
       return action.payload;
     default:
       return state;

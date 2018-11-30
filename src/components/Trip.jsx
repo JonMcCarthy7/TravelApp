@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { fetchTripMemories } from "../Redux/actions/tripMemoriesActions";
+import { deleteTrip } from "../Redux/actions/tripsAction";
 import TripMemoryList from "./TripMemoryList";
+import { Link } from "react-router-dom";
 
 class Trip extends Component {
   componentDidMount() {
@@ -24,10 +26,18 @@ class Trip extends Component {
                 </span>
               </div>
               <div className="card-action">
-                <a href="#">Edit</a>
-                <a className="right" href="#">
-                  Delete
-                </a>
+                <Link to={`/trips/${+this.props.match.params.id}/edit`}>
+                  <i className="small material-icons">edit</i>
+                </Link>
+                <i
+                  style={{ cursor: "pointer" }}
+                  onClick={() => {
+                    this.props.deleteTrip(trip.id, this.props.history);
+                  }}
+                  className="small material-icons right red-text text-darken-4"
+                >
+                  delete
+                </i>
               </div>
             </div>
           </div>
@@ -48,5 +58,5 @@ const mapStateToProps = ({ trips }, ownProps) => {
 
 export default connect(
   mapStateToProps,
-  { fetchTripMemories }
+  { fetchTripMemories, deleteTrip }
 )(Trip);

@@ -22,12 +22,12 @@ class Trips extends Component {
   }
 }
 
-const mapDispatchToProps = ({ trips }) => {
+const mapStateToProps = ({ trips }) => {
   return {
     trips
   };
 };
 export default connect(
-  mapDispatchToProps,
+  mapStateToProps,
   { fetchTrips }
 )(Trips);

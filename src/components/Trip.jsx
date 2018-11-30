@@ -26,7 +26,7 @@ class Trip extends Component {
                 </span>
               </div>
               <div className="card-action">
-                <Link to={`/trips/${+this.props.match.params.id}/edit`}>
+                <Link to={`/trips/${this.props.match.params.id}/edit`}>
                   <i className="small material-icons">edit</i>
                 </Link>
                 <i

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { addTrip } from "../Redux/actions/tripsAction";
+import { editTrip } from "../Redux/actions/tripsAction";
+import { withRouter } from "react-router-dom";
 
 class NewTrip extends Component {
   state = {
@@ -9,7 +10,7 @@ class NewTrip extends Component {
     end_date: "",
     description: "",
     country: ""
-  }; j
+  };
 
   handleChange = e => {
     this.setState({ [e.target.id]: e.target.value });
@@ -18,26 +19,49 @@ class NewTrip extends Component {
   handleSubmit = e => {
     e.preventDefault();
     console.log(this.state);
-    this.props.addTrip(this.state);
-    this.props.history.push("/");
+    this.props.editTrip(
+      this.state,
+      this.props.match.params.id,
+      this.props.history
+    );
   };
+
+  componentDidMount() {
+    console.log("COM DID MOUNT", this.props.trips);
+    const trip = this.props.trips.filter(
+      trip => trip.id === +this.props.match.params.id
+    );
+    this.setState({ name: trip.name });
+    this.setState({ start_date: trip.start_date });
+    this.setState({ end_date: trip.end_date });
+    this.setState({ description: trip.description });
+    this.setState({ country: trip.country });
+  }
+
+  trip = trips => {
+    trips.filter(trip => trip.id === +this.props.match.params.id);
+  };
+
   render() {
+    console.log("HELLO", this.props);
+
     return (
       <div>
         <div className="col s12 m6">
           <div className="card">
             <form onSubmit={this.handleSubmit}>
               <div className="card-content">
-                <span className="card-title">New Trip</span>
+                <span className="card-title">Edit Trip</span>
                 <div className="row card-body">
                   <div className="input-field col s12">
+                    <label htmlFor="name">Trip Name</label>
                     <input
+                      value={this.state.name}
                       id="name"
                       onChange={this.handleChange}
                       type="text"
                       className="validate"
                     />
-                    <label htmlFor="name">Trip Name</label>
                   </div>
                   <div className="input-field col s6">
                     <input
@@ -409,7 +433,15 @@ class NewTrip extends Component {
   }
 }
 
-export default connect(
-  null,
-  { addTrip }
-)(NewTrip);
+const mapStateToProps = ({ trips }) => {
+  return {
+    trips
+  };
+};
+
+export default withRouter(
+  connect(
+    mapStateToProps,
+    { editTrip }
+  )(NewTrip)
+);

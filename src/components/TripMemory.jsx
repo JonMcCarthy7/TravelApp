@@ -12,6 +12,7 @@ class TripMemory extends Component {
       <div>
         <div className="center">
           <h1>{memory[0].name}</h1>
+
           <div className="row">
             <div className="col s12">
               <div className="card teal darken-2">
@@ -27,7 +28,7 @@ class TripMemory extends Component {
                   </div>
                   <br />
                   <hr />
-                  <h5>{memory[0].description}</h5>
+                  <h6>{memory[0].description}</h6>
                   <br />
                   <div className="right">
                     <span>
@@ -39,9 +40,13 @@ class TripMemory extends Component {
                   </div>
                 </div>
                 <div className="card-action">
-                  <Link to={`/`}>
-                    <i className="small material-icons white-text left">edit</i>
-                  </Link>
+                  <i
+                    style={{ cursor: "pointer" }}
+                    onClick={() => this.props.history.goBack()}
+                    className="small material-icons left"
+                  >
+                    arrow_back
+                  </i>
                   <i
                     style={{ cursor: "pointer" }}
                     onClick={() => {
@@ -51,18 +56,16 @@ class TripMemory extends Component {
                   >
                     delete
                   </i>
+                  <Link to={`/`}>
+                    <i className="small material-icons white-text right">
+                      edit
+                    </i>
+                  </Link>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <i
-          style={{ cursor: "pointer" }}
-          onClick={() => this.props.history.goBack()}
-          className="large material-icons"
-        >
-          arrow_back
-        </i>
       </div>
     );
   }

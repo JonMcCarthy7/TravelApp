@@ -8,7 +8,7 @@ export default function TripCard({ trip }) {
       <div className="col s6">
         <div className="card small">
           <div className="card-image waves-effect waves-block waves-light">
-            <img className="activator" alt="default" src="/img/coding.jpg" />
+            <img className="activator" alt="default" src={trip.trip_header} />
           </div>
           <div className="card-content">
             <div className="row valign-wrapper">

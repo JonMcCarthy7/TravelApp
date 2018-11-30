@@ -17,6 +17,8 @@ class Trip extends Component {
 
     return (
       <div className="row">
+        <br />
+
         <div className="row">
           <div className="col s12">
             <div className="card teal darken-2">

@@ -6,7 +6,7 @@ export default function TripMemoryItem({ item }) {
   return (
     <div>
       <li key={item.id} className="collection-item avatar">
-        <img src="/img/coding.jpg" alt="" className="circle" />
+        <img src="/img/me.jpg" alt="" className="circle" />
         <span className="title">{item.name}</span>
         <p>
           Location: {item.location}

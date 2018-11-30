@@ -15,6 +15,7 @@ class Trips extends Component {
     });
     return (
       <div className="row">
+        <br />
         <NewTripCard />
         {this.props.trips && tripsList}
       </div>

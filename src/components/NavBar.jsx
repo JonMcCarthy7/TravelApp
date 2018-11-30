@@ -14,27 +14,17 @@ const Navbar = ({ auth, profile }) => {
         <Link to="/" className="brand-logo">
           CoolAppName
         </Link>
-        <ul className="right hide-on-med-and-down">
-          <li>
+        <ul className="right hide-on-med-and-down avatar">
+          <li className="">
             <a> Profile </a>
           </li>
           <li>
             <a> Log Out </a>
           </li>
         </ul>
-        {/* {links} */}
       </div>
     </nav>
   );
 };
-
-// const mapStateToProps = state => {
-//   console.log(state);
-
-//   return {
-//     auth: state.firebase.auth,
-//     profile: state.firebase.profile
-//   };
-// };
 
 export default connect(null)(Navbar);

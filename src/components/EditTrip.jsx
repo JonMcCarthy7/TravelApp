@@ -9,6 +9,7 @@ class NewTrip extends Component {
     start_date: "",
     end_date: "",
     description: "",
+    trip_header: "",
     country: ""
   };
 
@@ -35,7 +36,8 @@ class NewTrip extends Component {
         start_date: trip[0].start_date,
         end_date: trip[0].end_date,
         description: trip[0].description,
-        country: trip[0].country
+        country: trip[0].country,
+        trip_header: trip[0].trip_header
       });
     }
   }
@@ -53,6 +55,15 @@ class NewTrip extends Component {
                     <input
                       value={this.state.name}
                       id="name"
+                      onChange={this.handleChange}
+                      type="text"
+                      className="validate"
+                    />
+                  </div>
+                  <div className="input-field col s12">
+                    <input
+                      value={this.state.trip_header}
+                      id="trip_header"
                       onChange={this.handleChange}
                       type="text"
                       className="validate"

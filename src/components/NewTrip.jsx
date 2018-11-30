@@ -8,6 +8,7 @@ class NewTrip extends Component {
     start_date: "",
     end_date: "",
     description: "",
+    trip_header: "",
     country: ""
   };
   j;
@@ -38,6 +39,15 @@ class NewTrip extends Component {
                       className="validate"
                     />
                     <label htmlFor="name">Trip Name</label>
+                  </div>
+                  <div className="input-field col s12">
+                    <input
+                      id="trip_header"
+                      onChange={this.handleChange}
+                      type="text"
+                      className="validate"
+                    />
+                    <label htmlFor="trip_header">Trip Image Header</label>
                   </div>
                   <div className="input-field col s6">
                     <input

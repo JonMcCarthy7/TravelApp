@@ -9,7 +9,8 @@ class NewTrip extends Component {
     end_date: "",
     description: "",
     country: ""
-  };j
+  };
+  j;
 
   handleChange = e => {
     this.setState({ [e.target.id]: e.target.value });
@@ -17,7 +18,6 @@ class NewTrip extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    console.log(this.state);
     this.props.addTrip(this.state);
     this.props.history.push("/");
   };
@@ -25,7 +25,7 @@ class NewTrip extends Component {
     return (
       <div>
         <div className="col s12 m6">
-          <div className="card">
+          <div className="card green-text text-darken-4">
             <form onSubmit={this.handleSubmit}>
               <div className="card-content">
                 <span className="card-title">New Trip</span>
@@ -394,11 +394,14 @@ class NewTrip extends Component {
 
               <div className="card-action">
                 <button
-                  className="btn waves-effect waves-light green"
+                  className="btn waves-effect waves-light teal accent-3"
                   type="submit"
                   name="action"
                 >
-                  Submit <i className="material-icons right">send</i>
+                  Submit{" "}
+                  <i className="material-icons green-text text-darken-4 right">
+                    send
+                  </i>
                 </button>
               </div>
             </form>

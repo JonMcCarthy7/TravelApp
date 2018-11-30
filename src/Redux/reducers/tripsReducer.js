@@ -8,15 +8,7 @@ import {
   EDIT_TRIP_SUCCESS,
   EDIT_TRIP_FAILED
 } from "../actions/tripsAction";
-// const initState = [
-//   {
-//     name: "BURRRRR",
-//     start_date: "2018-11-07",
-//     end_date: "2018-11-22",
-//     description: "Bottom of the earth here we come!",
-//     country: "Antarctica"
-//   }
-// ];
+
 export default (state = [], action) => {
   switch (action.type) {
     case FETCH_TRIPS_SUCCESS:
@@ -24,7 +16,7 @@ export default (state = [], action) => {
     case FETCH_TRIPS_FAILED:
       return action.payload;
     case ADD_TRIP_SUCCESS:
-      return [action.payload, ...state];
+      return [action.payload.data, ...state];
     case ADD_TRIP_FAILED:
       return action.payload;
     case DELETE_TRIP_SUCCESS:
@@ -32,8 +24,6 @@ export default (state = [], action) => {
     case DELETE_TRIP_FAILED:
       return action.payload;
     case EDIT_TRIP_SUCCESS:
-      console.log("EDIT TRIP PAYLOD", action.payload);
-
       return state.map(trip =>
         trip.id !== action.payload.data.id ? trip : action.payload.data
       );

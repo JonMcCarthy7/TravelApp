@@ -1,8 +1,10 @@
 body {
-  background-color: rgb(238, 238, 255);
-  font-family: "Kanit", sans-serif;
+  background-color: #65ccb8;
+  font-family: "Titillium Web", sans-serif;
 }
-
+.nav-wrapper {
+  background-color: #182628;
+}
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;

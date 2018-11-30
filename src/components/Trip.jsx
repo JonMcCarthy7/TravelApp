@@ -19,7 +19,7 @@ class Trip extends Component {
       <div className="row">
         <div className="row">
           <div className="col s12">
-            <div className="card grey darken-1">
+            <div className="card teal darken-2">
               <div className="card-content white-text">
                 <span className="card-title center-align">
                   <h1>{trip && trip.name}</h1>
@@ -27,14 +27,14 @@ class Trip extends Component {
               </div>
               <div className="card-action">
                 <Link to={`/trips/${this.props.match.params.id}/edit`}>
-                  <i className="small material-icons">edit</i>
+                  <i className="small white-text material-icons">edit</i>
                 </Link>
                 <i
                   style={{ cursor: "pointer" }}
                   onClick={() => {
                     this.props.deleteTrip(trip.id, this.props.history);
                   }}
-                  className="small material-icons right red-text text-darken-4"
+                  className="small material-icons right white-text"
                 >
                   delete
                 </i>

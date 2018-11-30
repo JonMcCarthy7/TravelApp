@@ -14,6 +14,7 @@ const middleware = [thunk, logger];
 const store = createStore(rootReducer, applyMiddleware(...middleware));
 
 store.dispatch(fetchTrips());
+store.dispatch(fetchTrips());
 
 ReactDOM.render(
   <Provider store={store}>

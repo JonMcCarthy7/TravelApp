@@ -27,15 +27,12 @@ export const fetchTrips = () => {
 };
 
 export const addTrip = trip => {
-  console.log("THIS IS THE CREATEDD TRIP", { user_id: 1, ...trip });
-
   return async dispatch => {
     try {
       let response = await axiox.post(`http://localhost:3000/api/v1/trips`, {
         user_id: 1,
         ...trip
       });
-      console.log("This is the NEW TRIP R.DATA", response.data);
       return dispatch({
         type: ADD_TRIP_SUCCESS,
         payload: response.data
@@ -75,11 +72,7 @@ export const editTrip = (trip, tripId, history) => {
 export const deleteTrip = (tripId, history) => {
   return async dispatch => {
     try {
-      let response = await axiox.delete(
-        `http://localhost:3000/api/v1/trips/${tripId}`
-      );
-      console.log(response);
-
+      await axiox.delete(`http://localhost:3000/api/v1/trips/${tripId}`);
       dispatch({
         type: DELETE_TRIP_SUCCESS,
         payload: tripId

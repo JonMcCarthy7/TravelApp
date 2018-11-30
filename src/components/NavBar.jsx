@@ -9,23 +9,17 @@ const Navbar = ({ auth, profile }) => {
   //     <SignedOutLinks />
   //   );
   return (
-    <nav className="nav-wrapper blue accent-3">
+    <nav className="nav-wrapper">
       <div className="container">
         <Link to="/" className="brand-logo">
           CoolAppName
         </Link>
-        <ul className="right">
+        <ul className="right hide-on-med-and-down">
           <li>
-            TEST LINK
-            {/* <NavLink to="/create"></NavLink> */}
+            <a> Profile </a>
           </li>
           <li>
-            <a>Log Out</a>
-          </li>
-          <li>
-            {/* <NavLink to="/" className="btn btn-floating blue darken-1"> */}
-            LINK
-            {/* </NavLink> */}
+            <a> Log Out </a>
           </li>
         </ul>
         {/* {links} */}

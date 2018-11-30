@@ -7,6 +7,7 @@ import NewTrip from "./components/NewTrip";
 import Trip from "./components/Trip";
 import NewMemory from "./components/NewMemory";
 import EditTrip from "./components/EditTrip";
+import TripMemory from "./components/TripMemory";
 
 class App extends Component {
   render() {
@@ -17,10 +18,15 @@ class App extends Component {
           <div className="container">
             <Switch>
               <Route exact path="/" component={Trips} />
-              <Route path="/trips/new" component={NewTrip} />
+              <Route exact path="/trips/new" component={NewTrip} />
               <Route exact path="/trips/:id/edit" component={EditTrip} />
-              <Route path="/trips/:id/memory/new" component={NewMemory} />
-              <Route path="/trips/:id" component={Trip} />
+              <Route exact path="/trips/:id/memory/new" component={NewMemory} />
+              <Route
+                exact
+                path="/trips/:id/memory/:memory_id"
+                component={TripMemory}
+              />
+              <Route exact path="/trips/:id" component={Trip} />
             </Switch>
           </div>
         </React.Fragment>

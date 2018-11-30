@@ -6,22 +6,24 @@ export default function NewTripCard() {
     <div className="col s6">
       <div className="card small">
         <div className="card-image waves-effect waves-block waves-light">
-          <img className="activator" alt="default" src="/img/coding.jpg" />
+          <img className="activator" alt="default" src="/img/map.jpg" />
         </div>
         <div className="card-content">
-          <span className="card-title activator grey-text text-darken-4">
-            Add A New Trip
-            <i className="material-icons right">more_vert</i>
-          </span>
-          <div>
-            <Link to="/trips/new">
-              <i className="medium material-icons">add_circle_outline</i>
-            </Link>
-            <br />
+          <div className="row valign-wrapper">
+            <div className="col m6 card-title activator green-text text-darken-2">
+              Add A New Trip
+            </div>
+            <div className="col m6">
+              <Link to="/trips/new">
+                <i className="medium material-icons green-text text-darken-2 right">
+                  add_circle_outline
+                </i>
+              </Link>
+            </div>
           </div>
         </div>
-        <div className="card-reveal">
-          <span className="card-title grey-text text-darken-4">
+        <div className="card-reveal green-text text-darken-2">
+          <span className="card-title">
             Add A New Trip
             <i className="material-icons right">close</i>
           </span>

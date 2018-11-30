@@ -18,7 +18,6 @@ class NewTrip extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    console.log(this.state);
     this.props.editTrip(
       this.state,
       this.props.match.params.id,
@@ -27,34 +26,30 @@ class NewTrip extends Component {
   };
 
   componentDidMount() {
-    console.log("COM DID MOUNT", this.props.trips);
     const trip = this.props.trips.filter(
       trip => trip.id === +this.props.match.params.id
     );
-    this.setState({ name: trip.name });
-    this.setState({ start_date: trip.start_date });
-    this.setState({ end_date: trip.end_date });
-    this.setState({ description: trip.description });
-    this.setState({ country: trip.country });
+    if (trip.length > 0) {
+      this.setState({
+        name: trip[0].name,
+        start_date: trip[0].start_date,
+        end_date: trip[0].end_date,
+        description: trip[0].description,
+        country: trip[0].country
+      });
+    }
   }
 
-  trip = trips => {
-    trips.filter(trip => trip.id === +this.props.match.params.id);
-  };
-
   render() {
-    console.log("HELLO", this.props);
-
     return (
       <div>
         <div className="col s12 m6">
-          <div className="card">
+          <div className="card green-text text-darken-4">
             <form onSubmit={this.handleSubmit}>
               <div className="card-content">
                 <span className="card-title">Edit Trip</span>
                 <div className="row card-body">
                   <div className="input-field col s12">
-                    <label htmlFor="name">Trip Name</label>
                     <input
                       value={this.state.name}
                       id="name"
@@ -66,6 +61,7 @@ class NewTrip extends Component {
                   <div className="input-field col s6">
                     <input
                       id="start_date"
+                      value={this.state.start_date}
                       onChange={this.handleChange}
                       type="date"
                       className="validate"
@@ -75,6 +71,7 @@ class NewTrip extends Component {
                   <div className="input-field col s6">
                     <input
                       id="end_date"
+                      value={this.state.end_date}
                       onChange={this.handleChange}
                       type="date"
                       className="validate"
@@ -84,6 +81,7 @@ class NewTrip extends Component {
                 </div>
                 <label htmlFor="country">Country</label>
                 <select
+                  value={this.state.country}
                   id="country"
                   onChange={this.handleChange}
                   className="browser-default validate"
@@ -407,10 +405,10 @@ class NewTrip extends Component {
                   <option value="Zimbabwe">Zimbabwe</option>
                 </select>
                 <div className="input-field col s8">
-                  <label htmlFor="description">Trip Description</label>
                   <textarea
                     className="materialize-textarea validate"
                     id="description"
+                    value={this.state.description}
                     onChange={this.handleChange}
                   />
                 </div>
@@ -418,11 +416,14 @@ class NewTrip extends Component {
 
               <div className="card-action">
                 <button
-                  className="btn waves-effect waves-light green"
+                  className="btn waves-effect waves-light teal accent-3"
                   type="submit"
                   name="action"
                 >
-                  Submit <i className="material-icons right">send</i>
+                  Submit{" "}
+                  <i className="material-icons green-text text-darken-4 right">
+                    send
+                  </i>
                 </button>
               </div>
             </form>

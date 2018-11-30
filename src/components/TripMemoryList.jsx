@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { withRouter, Link } from "react-router-dom";
+import TripMemoryItem from "./TripMemoryItem";
 
 class TripMemoryList extends Component {
   render() {
@@ -12,23 +13,10 @@ class TripMemoryList extends Component {
         );
       })
       .map(item => {
-        return (
-          <li key={item.id} className="collection-item avatar">
-            <img src="/img/coding.jpg" alt="" className="circle" />
-            <span className="title">{item.name}</span>
-            <p>
-              Location: {item.location}
-              <br />
-              Created At: {item.created_at}
-            </p>
-            <a href="#!" className="secondary-content">
-              <i className="material-icons">send</i>
-            </a>
-          </li>
-        );
+        return <TripMemoryItem key={item.id} item={item} />;
       });
     return (
-      <div>
+      <div className="green-text text-darken-4">
         <ul className="collection with-header">
           <li className="collection-header">
             <h4>

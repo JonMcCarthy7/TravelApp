@@ -420,7 +420,7 @@ class NewTrip extends Component {
                   type="submit"
                   name="action"
                 >
-                  Submit{" "}
+                  Save{" "}
                   <i className="material-icons green-text text-darken-4 right">
                     send
                   </i>

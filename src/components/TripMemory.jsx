@@ -27,7 +27,7 @@ class TripMemory extends Component {
                   </div>
                   <br />
                   <hr />
-                  <p>{memory[0].description}</p>
+                  <h5>{memory[0].description}</h5>
                   <br />
                   <div className="right">
                     <span>
